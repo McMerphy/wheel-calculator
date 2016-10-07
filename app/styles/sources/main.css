@@ -1,0 +1,31 @@
+
+.item-box {
+	border: 1px solid #000;
+}
+
+.container {
+	width:80%;
+	text-align: center;
+}
+
+.item-box {
+	padding: 3%;
+}
+
+.image-box {
+	margin-top:5px;
+}
+
+.weel-width input{
+	float: left;
+	width: 50%;
+}
+
+.weel-width span {
+	float:left;
+	width: 20%;
+}
+
+.item-box label {
+	display: block;
+}

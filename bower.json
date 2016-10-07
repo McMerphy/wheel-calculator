@@ -1,0 +1,17 @@
+{
+  "name": "TiresCalcualtor",
+  "description": "Helps to compare two types of tires.",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

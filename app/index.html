@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="EN_en" ng-app="wheelCalculator">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Weel and Tyre Calculator</title>
+		<link href="styles/dist/bootstrap.min.css" rel="stylesheet">
+		<link href="styles/dist/main.css" rel="stylesheet">
+		<link href="styles/fonts/"
+
+	</head>
+	<body ng-controller="mainController">
+			
+			<div class="container">
+			<h1>We help you to choose right tyre</h1>
+
+
+				<div class="row">
+					<div class="col-md-5 col-xs-5 weel-container">
+						<div class="row">
+							<div class="col-md-3 col-xs-3 image-box">
+								<img src="images/smalltyre.jpg" alt="">
+							</div>
+							<div class="col-md-3 col-xs-3 item-box">
+								<label>Width</label>
+								<input type="text" class="form-control" maxlength="3" ng-model="firstWheel.tyreWidth">
+							</div>
+							<div class="col-md-3 col-xs-3 item-box">
+								<label>Profile</label>
+								<input type="text" class="form-control" maxlength="3" ng-model="firstWheel.tyreProfile">
+							</div>
+							<div class="col-md-3 col-xs-3 item-box">
+								<label>Diameter</label>
+								<input type="text" class="form-control" maxlength="3" ng-model="firstWheel.tyreDiameter">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3 col-xs-3 image-box">
+								<img src="images/smallwheel.jpg" alt="">
+							</div>
+							<div class="col-md-6  col-xs-6 item-box weel-width">
+								<label>Width</label>
+								<span class="glyphicon glyphicon-minus"field="wheelwidth"></span>
+								<input type="text" class="form-control" size="2" maxlength="5" name="wheelwidth" ng-model="firstWheel.wheelWidth">
+								<span class="glyphicon glyphicon-plus" field="wheelwidth"></span>
+							</div>
+							<div class="col-md-3 col-xs-3 item-box">
+								<label>Offset</label>
+								<input type="text" class="form-control" ng-model="firstWheel.offset">
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2 col-xs-2"></div>
+					<div class="col-md-5 col-xs-5 weel-container">
+						<div class="row">
+							<div class="col-md-3 col-xs-3 image-box">
+								<img src="images/smalltyre.jpg" alt="">
+							</div>
+							<div class="col-md-3 col-xs-3 item-box">
+								<label>Width</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-3 col-xs-3 item-box">
+								<label>Profile</label>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-3 col-xs-3 item-box">
+								<label>Diameter</label>
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3 col-xs-3 image-box">
+								<img src="images/smallwheel.jpg" alt="">
+							</div>
+							<div class="col-md-6  col-xs-6 item-box weel-width">
+								<label>Width</label>
+								<span class="glyphicon glyphicon-minus"field="weelwidth"></span>
+								<input type="text" class="form-control" name="weelwidth">
+								<span class="glyphicon glyphicon-plus" field="weelwidth"></span>
+							</div>
+							<div class="col-md-3 col-xs-3 item-box">
+								<label>Offset</label>
+								<input type="text" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6"></div>
+					<div class="col-md-6"></div>
+				</div>
+
+				<div class="row"></div>
+
+			</div>
+
+
+			<script src="js/external/jquery-bundle.min.js"></script>
+			<script src="js/external/angular-bundle.min.js"></script>
+			<script src="js/external/bootstrap-bundle.min.js"></script>
+			<script src="js/internal/app.js"></script>
+	</body>
+</html>
