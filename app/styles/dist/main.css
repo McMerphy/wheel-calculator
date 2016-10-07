@@ -1,5 +1,5 @@
 body {
-  background-color: #ddd;
+  background-color: #fff;
 }
 .first-tire {
   background-color: #E9DE30;
@@ -39,13 +39,13 @@ body {
   width: 50%;
 }
 .weel-width span {
-  border: 1px solid #cccccc;
+  border: 1px solid #eeeeee;
   height: 34px;
   line-height: 32px;
   display: block;
   float: left;
   width: 24%;
-  background-color: #ddd;
+  background-color: #fff;
   margin-top: -1px;
 }
 .weel-width span:hover {

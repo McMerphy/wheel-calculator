@@ -11,6 +11,8 @@ var less = require('gulp-less');
 var livereload = require('gulp-livereload');
 var watch = require('gulp-watch');
 var jshint = require('gulp-jshint');
+var rename = require('gulp-rename');
+
 
 var config = {
    
@@ -18,11 +20,6 @@ var config = {
         'bower_components/angular/angular.min.js',
     ],
     angularbundle: 'app/js/external/angular.min.js',
-
-    appsrc: [
-        'app/js/sources/wheel-app.js',
-    ],
-    appbundle: 'app/js/internal/app.js',
 
     bootstrapsrc: [
         'bower_components/bootstrap/dist/js/bootstrap.min.js'    ],
@@ -32,9 +29,6 @@ var config = {
         'bower_components/jquery/dist/jquery.min.js'
     ],
     jquerybundle: 'app/js/external/jquery-bundle.min.js',
-
-    bootstrapcss: 'bower_components/bootstrap/dist/css/bootstrap.css',
-    boostrapfonts: 'bower_components/bootstrap/dist/fonts/*.*',
 
     appcss: 'app/styles/sources/main.css',
     cssout: 'app/styles/dist',
@@ -48,8 +42,7 @@ var config = {
 gulp.task('clean-scripts', function (cb) {
     del.sync([config.jquerybundle,
               config.bootstrapbundle,
-              config.angularbundle,
-              config.appbundle], cb);
+              config.angularbundle], cb);
 });
 
 gulp.task('jquery-bundle', [ ], function () {
@@ -58,13 +51,11 @@ gulp.task('jquery-bundle', [ ], function () {
      .pipe(gulp.dest(config.externalsrc));
 });
 
-
 gulp.task('bootstrap-bundle', [], function () {
     return gulp.src(config.bootstrapsrc)
      .pipe(concat('bootstrap-bundle.min.js'))
      .pipe(gulp.dest(config.externalsrc));
 });
-
 gulp.task('angular', [], function () {
     return gulp.src(config.angularsrc)
         .pipe(concat('angular-bundle.min.js'))
@@ -81,19 +72,13 @@ gulp.task('clean-styles', function (cb) {
     del([config.cssout], cb);
 });
 
-gulp.task('css', [], function () {
-    return gulp.src([config.bootstrapcss,config.appcss])
-     .pipe(concat('app.css'))
-     .pipe(gulp.dest(config.cssout))
-     .pipe(minifyCSS())
-     .pipe(concat('app.min.css'))
-     .pipe(gulp.dest(config.cssout));
-});
-
 gulp.task('less', function() {
    gulp.src('app/styles/sources/*.less')
       .pipe(watch('app/styles/sources/*.less'))
       .pipe(less())
+      .pipe(gulp.dest('app/styles/dist'))
+      .pipe(minifyCSS())
+      .pipe(rename({suffix: '.min'}))
       .pipe(gulp.dest('app/styles/dist'))
       .pipe(livereload());
 });
@@ -103,9 +88,11 @@ gulp.task('app', [ ], function () {
      .pipe(jshint())
      .pipe(jshint.reporter('default'))
      .pipe(gulp.dest(config.internalsrc))
+     .pipe(uglify())
+     .pipe(rename({suffix: '.min'}))
+     .pipe(gulp.dest(config.internalsrc))
      .pipe(livereload());
 });
-
 
 gulp.task('fonts', [], function () {
     return
@@ -113,7 +100,7 @@ gulp.task('fonts', [], function () {
         .pipe(gulp.dest(config.fontsout));
 });
 
-gulp.task('styles', ['clean-styles', 'css', 'fonts'], function () {
+gulp.task('styles', ['clean-styles', 'less', 'fonts'], function () {
 
 });
 

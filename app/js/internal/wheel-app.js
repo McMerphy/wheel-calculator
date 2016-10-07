@@ -22,13 +22,13 @@ wheelCalculator.controller('mainController', ['$scope', function mainController(
     	if (wheel.wheelWidth < 100){
     		wheel.wheelWidth += 0.5;
     	}
-    }
+    };
 
     $scope.decrease = function(wheel) {
     	if (wheel.wheelWidth > 0){
     		wheel.wheelWidth -= 0.5;
     	}
-    }
+    };
 }]);
 
 wheelCalculator.directive('wheelCanvas', function() {
