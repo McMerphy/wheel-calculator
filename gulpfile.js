@@ -10,6 +10,7 @@ var bower = require('gulp-bower');
 var less = require('gulp-less');
 var livereload = require('gulp-livereload');
 var watch = require('gulp-watch');
+var jshint = require('gulp-jshint');
 
 var config = {
    
@@ -57,11 +58,6 @@ gulp.task('jquery-bundle', [ ], function () {
      .pipe(gulp.dest(config.externalsrc));
 });
 
-gulp.task('app-bundle', [ ], function () {
-    return gulp.src(config.appsrc)
-     .pipe(concat('app.js'))
-     .pipe(gulp.dest(config.internalsrc));
-});
 
 gulp.task('bootstrap-bundle', [], function () {
     return gulp.src(config.bootstrapsrc)
@@ -76,7 +72,7 @@ gulp.task('angular', [], function () {
 });
 
 // Combine and the vendor files from bower into bundles (output to the scripts folder)
-gulp.task('scripts', ['clean-scripts', 'jquery-bundle', 'bootstrap-bundle', 'angular', 'app-bundle'], function () {
+gulp.task('scripts', ['clean-scripts', 'jquery-bundle', 'bootstrap-bundle', 'angular'], function () {
 
 });
 
@@ -101,6 +97,15 @@ gulp.task('less', function() {
       .pipe(gulp.dest('app/styles/dist'))
       .pipe(livereload());
 });
+gulp.task('app', [ ], function () {
+    return gulp.src('app/js/sources/*.js')
+     .pipe(watch('app/js/sources/*.js'))
+     .pipe(jshint())
+     .pipe(jshint.reporter('default'))
+     .pipe(gulp.dest(config.internalsrc))
+     .pipe(livereload());
+});
+
 
 gulp.task('fonts', [], function () {
     return

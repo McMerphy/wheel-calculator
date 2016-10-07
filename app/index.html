@@ -17,8 +17,9 @@
 
 
 				<div class="row">
-					<div class="col-md-5 col-xs-5 weel-container">
+					<div class="col-md-4 col-xs-5 weel-container">
 						<div class="row">
+							<h2 class="first-tire">First tire</h2>
 							<div class="col-md-3 col-xs-3 image-box">
 								<img src="images/smalltyre.jpg" alt="">
 							</div>
@@ -41,9 +42,9 @@
 							</div>
 							<div class="col-md-6  col-xs-6 item-box weel-width">
 								<label>Width</label>
-								<span class="glyphicon glyphicon-minus"field="wheelwidth"></span>
+								<span class="glyphicon glyphicon-minus"  ng-click="decrease(firstWheel)"></span>
 								<input type="text" class="form-control" size="2" maxlength="5" name="wheelwidth" ng-model="firstWheel.wheelWidth">
-								<span class="glyphicon glyphicon-plus" field="wheelwidth"></span>
+								<span class="glyphicon glyphicon-plus" ng-click="increase(firstWheel)"></span>
 							</div>
 							<div class="col-md-3 col-xs-3 item-box">
 								<label>Offset</label>
@@ -51,23 +52,26 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-2 col-xs-2"></div>
-					<div class="col-md-5 col-xs-5 weel-container">
+					<div class="col-md-4 col-xs-2">
+						<wheel-canvas first-wheel="firstWheel" second-wheel="secondWheel" background-image="images/wheelimage.gif"></wheel-canvas>
+					</div>
+					<div class="col-md-4 col-xs-5 weel-container">
 						<div class="row">
+							<h2 class="second-tire">Second tire</h2>
 							<div class="col-md-3 col-xs-3 image-box">
 								<img src="images/smalltyre.jpg" alt="">
 							</div>
 							<div class="col-md-3 col-xs-3 item-box">
 								<label>Width</label>
-								<input type="text" class="form-control">
+								<input type="text" class="form-control" maxlength="3" ng-model="secondWheel.tyreWidth">
 							</div>
 							<div class="col-md-3 col-xs-3 item-box">
 								<label>Profile</label>
-								<input type="text" class="form-control">
+								<input type="text" class="form-control" maxlength="3" ng-model="secondWheel.tyreProfile">
 							</div>
 							<div class="col-md-3 col-xs-3 item-box">
 								<label>Diameter</label>
-								<input type="text" class="form-control">
+								<input type="text" class="form-control" maxlength="3" ng-model="secondWheel.tyreDiameter">
 							</div>
 						</div>
 						<div class="row">
@@ -76,24 +80,21 @@
 							</div>
 							<div class="col-md-6  col-xs-6 item-box weel-width">
 								<label>Width</label>
-								<span class="glyphicon glyphicon-minus"field="weelwidth"></span>
-								<input type="text" class="form-control" name="weelwidth">
-								<span class="glyphicon glyphicon-plus" field="weelwidth"></span>
+								<span class="glyphicon glyphicon-minus"  ng-click="decrease(secondWheel)"></span>
+								<input type="text" class="form-control" size="2" maxlength="5" name="wheelwidth" ng-model="secondWheel.wheelWidth">
+								<span class="glyphicon glyphicon-plus" ng-click="increase(secondWheel)"></span>
 							</div>
 							<div class="col-md-3 col-xs-3 item-box">
 								<label>Offset</label>
-								<input type="text" class="form-control">
+								<input type="text" class="form-control" ng-model="secondWheel.offset">
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<div class="row">
-					<div class="col-md-6"></div>
-					<div class="col-md-6"></div>
 				</div>
 
-				<div class="row"></div>
 
 			</div>
 
@@ -101,6 +102,6 @@
 			<script src="js/external/jquery-bundle.min.js"></script>
 			<script src="js/external/angular-bundle.min.js"></script>
 			<script src="js/external/bootstrap-bundle.min.js"></script>
-			<script src="js/internal/app.js"></script>
+			<script src="js/internal/wheel-app.js"></script>
 	</body>
 </html>
